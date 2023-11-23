@@ -1,5 +1,19 @@
 import Foundation
 
-func solution(_ num1:Int, _ num2:Int) -> Int {
-    return num1 - num2
+func solution(_ phone_number: String) -> String {
+    // 문자열의 길이를 가져옵니다.
+    let length = phone_number.count
+    
+    // 뒷 4자리를 제외한 길이만큼 '*'로 채웁니다.
+    let hiddenPart = String(repeating: "*", count: length - 4)
+    
+    // 뒷 4자리를 가져와서 '*'로 가린 문자열을 완성합니다.
+    let visiblePart = String(phone_number.suffix(4))
+    
+    // 두 부분을 합쳐 최종 결과를 반환합니다.
+    return hiddenPart + visiblePart
 }
+
+let phoneNumber = "01033334444"
+let result = solution(phoneNumber)
+print(result)  
