@@ -1,0 +1,13 @@
+func solution(_ arr: [Int]) -> Double {
+    return Double(arr.reduce(0, +)) / Double(arr.count)
+}
+
+let arr1 = [1, 2, 3, 4]
+let result1 = solution(arr1)
+
+let arr2 = [5, 5]
+let result2 = solution(arr2)
+
+print("arr\tresult")
+print("\(arr1)\t\(result1)")
+print("\(arr2)\t\(result2)")
