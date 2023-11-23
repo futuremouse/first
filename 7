@@ -1,0 +1,14 @@
+func solution(_ num1: Int, _ num2: Int) -> Int {
+    let result = Double(num1) / Double(num2) * 1000
+    return Int(result)
+}
+
+let example1 = (num1: 3, num2: 2)
+let example2 = (num1: 7, num2: 3)
+let example3 = (num1: 1, num2: 16)
+
+
+print("num1\tnum2\tresult")
+print("\(example1.num1)\t\(example1.num2)\t\(solution(example1.num1, example1.num2))")
+print("\(example2.num1)\t\(example2.num2)\t\(solution(example2.num1, example2.num2))")
+print("\(example3.num1)\t\(example3.num2)\t\(solution(example3.num1, example3.num2))")
