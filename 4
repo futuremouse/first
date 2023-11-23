@@ -1,0 +1,18 @@
+import Foundation
+
+func solution(_ age: Int) -> Int {
+    let currentYear = 2022
+    let birthYear = currentYear - age + 1
+    return birthYear
+}
+
+let age1 = 40
+let result1 = solution(age1)
+
+let age2 = 23
+let result2 = solution(age2)
+
+
+print("age\tresult")
+print("\(age1)\t\(result1)")
+print("\(age2)\t\(result2)")
