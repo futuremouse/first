@@ -1,0 +1,17 @@
+
+func solution(_ num: Int) -> String {
+    if num % 2 == 0 {
+        return "Even"
+    } else {
+        return "Odd"
+    }
+}
+
+let num1 = 3
+let result1 = solution(num1)
+let num2 = 4
+let result2 = solution(num2)
+
+print("num\tresult")
+print("\(num1)\t\(result1)")
+print("\(num2)\t\(result2)")
