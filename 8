@@ -1,0 +1,27 @@
+import Foundation
+
+func solution(_ angle: Int) -> Int {
+    var result = 0
+
+    if 0 < angle && angle < 90 {
+        result = 1
+    } else if angle == 90 {
+        result = 2
+    } else if 90 < angle && angle < 180 {
+        result = 3
+    } else if angle == 180 {
+        result = 4
+    }
+
+    return result
+}
+let examples: [(angle: Int, result: Int)] = [
+    (70, solution(70)),
+    (91, solution(91)),
+    (180, solution(180))
+]
+
+print("angle\tresult")
+for example in examples {
+    print("\(example.angle)\t\(example.result)")
+}
