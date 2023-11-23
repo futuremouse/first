@@ -1,0 +1,21 @@
+import Foundation
+
+func average(_ numbers: [Int]) -> Double {
+    let sum = numbers.reduce(0, +)
+    return Double(sum) / Double(numbers.count)
+}
+
+func solution(_ numbers: [Int]) -> Double {
+    let result = average(numbers)
+    return result
+}
+
+let numbers1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let result1 = solution(numbers1)
+
+let numbers2 = [89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+let result2 = solution(numbers2)
+
+print("numbers\tresult")
+print("\(numbers1)\t\(result1)")
+print("\(numbers2)\t\(result2)")
