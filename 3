@@ -1,0 +1,19 @@
+import Foundation
+
+func solution(_ num1: Int, _ num2: Int) -> Int {
+    var result: Int
+    
+    guard num2 != 0 else {
+        result = 0
+        return result
+    }
+    
+    result = num1 / num2
+    return result
+}
+
+var result1 = solution(10, 5)
+print(result1)  
+
+var result2 = solution(7, 2)
+print(result2) 
