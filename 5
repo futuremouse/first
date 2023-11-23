@@ -1,0 +1,22 @@
+struct Example {
+    var num1: Int
+    var num2: Int
+    var result: Int
+}
+
+func solution(_ num1: Int, _ num2: Int) -> Int {
+    return num1 == num2 ? 1 : -1
+}
+
+// 예제 데이터
+let examples: [Example] = [
+    Example(num1: 2, num2: 3, result: solution(2, 3)),
+    Example(num1: 11, num2: 11, result: solution(11, 11)),
+    Example(num1: 7, num2: 99, result: solution(7, 99))
+]
+
+// 출력
+print("num1\tnum2\tresult")
+for example in examples {
+    print("\(example.num1)\t\(example.num2)\t\(example.result)")
+}
