@@ -1,0 +1,28 @@
+struct Example {
+    let x: Int
+    let n: Int
+    let result: [Int]
+}
+
+func solution(_ x: Int, _ n: Int) -> [Int] {
+    guard x >= -10_000_000 && x <= 10_000_000 else {
+        fatalError("입력값이 유효하지 않습니다. (-10,000,000 이상 10,000,000 이하의 정수여야 함)")
+    }
+
+    guard n <= 1000 else {
+        fatalError("입력값이 유효하지 않습니다. (n은 1000 이하의 자연수여야 함)")
+    }
+
+    return (1...n).map { $0 * x }
+}
+
+let examples: [Example] = [
+    Example(x: 2, n: 3, result: solution(2, 3)),
+    Example(x: 4, n: 3, result: solution(4, 3)),
+    Example(x: -4, n: 2, result: solution(-4, 2)),
+]
+
+print("x\tn\tresult")
+for example in examples {
+    print("\(example.x)\t\(example.n)\t\(example.result)")
+}
