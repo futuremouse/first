@@ -1,0 +1,8 @@
+func solution(_ n: Int) -> Int {
+    let sortedNumber = Int(String(String(n).compactMap { $0 }.sorted(by: >))) ?? 0
+    return sortedNumber
+}
+
+// 테스트
+let result = solution(118372)
+print(result)  // 출력: 873211
