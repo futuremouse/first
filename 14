@@ -1,0 +1,27 @@
+import Foundation
+
+func solution(_ n: Int) -> Int {
+    guard n >= 0 && n <= 3000 else {
+        fatalError("입력값이 유효하지 않습니다. (0 이상 3000 이하의 정수여야 함)")
+    }
+
+    var sum = 0
+
+    for i in 1...n {
+        if n % i == 0 {
+            // n의 약수일 경우 더함
+            sum += i
+        }
+    }
+
+    return sum
+}
+let n1 = 12
+let result1 = solution(n1)
+
+let n2 = 5
+let result2 = solution(n2)
+
+print("n\tresult")
+print("\(n1)\t\(result1)")
+print("\(n2)\t\(result2)")
