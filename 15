@@ -1,0 +1,25 @@
+
+import Foundation
+
+func solution(_ n: Int) -> Int {
+    guard 3 <= n && n <= 1_000_000 else {
+        fatalError("입력값이 유효하지 않습니다. (3 이상 1,000,000 이하의 정수여야 함)")
+    }
+
+    for x in 2...n {
+        if n % x == 1 {
+            return x
+        }
+    }
+     return -1
+}
+
+let n1 = 10
+let n2 = 12
+
+let result1 = solution(n1)
+let result2 = solution(n2)
+
+print("n\tresult")
+print("\(n1)\t\(result1)")
+print("\(n2)\t\(result2)")
