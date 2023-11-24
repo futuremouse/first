@@ -1,0 +1,24 @@
+struct Example {
+    let n: Int
+    let result: Int
+}
+
+func solution(_ n: Int) -> Int {
+    // n이 양의 정수 x의 제곱이라면
+    if let x = Int(exactly: Double(n).squareRoot()), x * x == n {
+        return (x + 1) * (x + 1)
+    } else {
+        return -1
+    }
+}
+
+// 예시
+let examples: [Example] = [
+    Example(n: 121, result: solution(121)),
+    Example(n: 3, result: solution(3)),
+]
+
+print("n\tresult")
+for example in examples {
+    print("\(example.n)\t\(example.result)")
+}
