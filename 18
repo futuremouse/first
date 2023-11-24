@@ -1,0 +1,13 @@
+func solution(_ s: String) -> Int {
+ guard s.count >= 1 && s.count <= 5 else {
+        fatalError("입력값의 길이가 유효하지 않습니다. (1 이상 5 이하의 길이여야 함)")
+    }
+    return Int(s)!
+}
+
+// 테스트
+let result1 = solution("12345")
+print(result1)  // 출력: 1234
+
+let result2 = solution("-5678")
+print(result2)  // 출력: -5678
