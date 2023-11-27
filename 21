@@ -1,0 +1,10 @@
+func isHarshad(_ x: Int) -> Bool {  // x라는 하나의 정수를 입력받아 Bool 값을 반환
+    let digitsSum = String(x).compactMap { Int(String($0)) }.reduce(0, +)    
+  // 입력된 숫자 x를 문자열로 변환
+ // compactMap을 사용하여 문자열을 숫자 배열로 변환
+ // reduce함수를 이용해 배열의 모든 요소를 더해 각 자릿수의 합인 digitSum을 구함
+   return x % digitsSum == 0
+ // x를 digitSum으로 나누었을 때 나머지가 0인지르르 확인
+}
+print(isHarshad(12)) // 예시로 주어진 12은 하샤드 수이므로 true를 출력합니다.
+print(isHarshad(11)) // 11는 하샤드 수가 아니므로 false를 출력합니다.
