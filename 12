@@ -1,5 +1,11 @@
+func average(_ arr:[Int]) -> Double {
+    let sum = arr.reduce(0,+)
+    return Double(sum) / Double(arr.count)
+}
+
 func solution(_ arr: [Int]) -> Double {
-    return Double(arr.reduce(0, +)) / Double(arr.count)
+    let result = average(arr)
+    return result
 }
 
 let arr1 = [1, 2, 3, 4]
