@@ -1,13 +1,13 @@
 import Foundation
 
 func solution(_ num1:Int, _ num2:Int) -> Int {
+   if (-50000 <= num1 && num1 <= 50000) && (-50000 <= num2 && num2 <= 50000) {
     return num1 + num2
+    }
+    return -1
 }
+let num1 = 2
+let num2 = 3
+let result = solution(num1,num2)
 
-let example1 = (num1: 2, num2: 3)
-let example2 = (num1: 100, num2: 2)
-
-
-print("num1\tnum2\tresult")
-print("\(example1.num1)\t\(example1.num2)\t\(solution(example1.num1, example1.num2))")
-print("\(example2.num1)\t\(example2.num2)\t\(solution(example2.num1, example2.num2))")
+print(result)
