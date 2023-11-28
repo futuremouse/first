@@ -1,7 +1,11 @@
-func solution(_ num1: Int, _ num2: Int) -> Int {
-    let result = Double(num1) / Double(num2) * 1000
-    return Int(result)
-}
+func solution(_ num1:Int, _ num2:Int) -> Int {
+    if (0 < num1 && num1 <= 1000) && (0 < num2 && num2 <= 1000){
+        let result = Double(num1) / Double(num2) * 1000
+        return Int(result)
+    }  else  {
+            return -1
+        }
+    }
 
 let example1 = (num1: 3, num2: 2)
 let example2 = (num1: 7, num2: 3)
