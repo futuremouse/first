@@ -1,0 +1,10 @@
+func solution(_ seoul:[String]) -> String {
+   if let x = seoul.firstIndex(of: "Kim") {  //* Optional 값 해제방법
+                                             //* firstIndex(of:) 메서드에서 "Kim"의 인덱스를 찾아서 그 값을 Optional로 반환, if let 구문을 통해 안전하게 해제하여 x 변수에 할당. 
+                                             //* 이후에 x는 Optional이 아닌 실제 값으로 사용
+         return "김서방은 \(x)에 있다"
+     }
+        return ""
+}
+let result = solution(["Jane", "Kim"])
+print(result)
