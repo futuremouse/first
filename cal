@@ -1,0 +1,50 @@
+class AbstractOperation { //추상 클래스
+    func operate(_ a: Double, _ b: Double) -> Double {
+        return nil //operate 직접 호출하면 에러 발생
+        }
+}
+
+class AddOperation: AbstractOperation { //AbstractOperation 클래스를 상속
+    override func operate(_ a: Double, _ b: Double) -> Double {
+        return a+b //연산
+    }
+}
+class SubtractOperation: AbstractOperation {
+    override func operate(_ a: Double, _ b: Double) -> Double {
+        return a-b
+    }
+}
+class MultiplyOperation: AbstractOperation {
+    override func operate(_ a: Double, _ b: Double) -> Double {
+        return a*b
+    }
+}
+class DivideOperation: AbstractOperation {
+    override func operate(_ a : Double, _ b: Double) -> Double {
+        guard b != 0 else {
+            fatalError("Error: Division by zero.")
+        }
+        return a/b
+    }
+}
+
+class Calculator {
+    func calculate(_ a: Double, _ b: Double, operation: AbstractOperation) -> Double { // 숫자 a, b와 AbstractOperation 타입의 연산을 받음
+        return operation.operate(a,b)
+    }
+}
+
+let calculator = Calculator()
+
+let a=6.0
+let b=3.0
+
+let addResult = calculator.calculate(a,b,operation:AddOperation()) //덧셈 연산
+let subtractResult = calculator.calculate(a,b,operation:SubtractOperation()) // 뺄셈 연산
+let multiplyResult = calculator.calculate(a,b,operation:MultiplyOperation()) // 곱셈 연산
+let divideResult = calculator.calculate(a,b,operation:DivideOperation()) // 나눗셈 연산
+
+print("addREsult: \(addResult)")
+print("subtractResult: \(subtractResult)")
+print("multiplyResult: \(multiplyResult)")
+print("dvideResult: \(divideResult)")
