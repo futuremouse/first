@@ -1,0 +1,16 @@
+func solution(_ arr:[Int], _ divisor:Int) -> [Int] {
+   let divisibleValues = arr.filter { $0 % divisor == 0 }
+
+    if divisibleValues.isEmpty {
+     return [-1]
+ }
+
+   let sortedResult = divisibleValues.sorted()
+        return sortedResult
+    }     
+
+let arr  =  [5,9,7,10]
+let divisor  =  5
+let result  =  solution(arr,divisor)
+
+print(result)
