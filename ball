@@ -1,0 +1,94 @@
+import Foundation
+
+func generateRandomNumber() -> String {
+    var digits: [Int] = []
+    
+    // 첫 자리에는 1에서 9까지의 숫자가 올 수 있도록 설정
+        let firstDigit = Int.random(in: 1...9)
+        digits.append(firstDigit)
+
+        // 나머지 두 자리에는 0에서 9까지의 숫자가 올 수 있도록 설정
+        while digits.count < 3 {
+            let randomDigit = Int.random(in: 0...9)
+            if !digits.contains(randomDigit) {
+                digits.append(randomDigit)
+            }
+    }
+    
+    // 숫자를 문자열로 변환하여 반환
+    return digits.map { String($0) }.joined()
+}
+
+func validateInput(_ input: String) -> Bool {
+    // 입력값이 세 자리 숫자인지 확인
+    guard input.count == 3, let _ = Int(input) else {
+        return false
+    }
+
+    // 중복된 숫자가 없는지 확인
+    let uniqueDigits = Set(input)
+    guard uniqueDigits.count == 3 else {
+        return false
+    }
+
+    // 첫 자리에 0이 오지 않도록 확인
+    guard input.first != "0" else {
+        return false
+    }
+
+    return true
+}
+
+func calculateResult(userInput: String, answer: String) -> String {
+    guard validateInput(userInput) else {
+            return "올바르지 않은 입력값입니다"
+        }
+    var strikes = 0
+    var balls = 0
+    
+    // 입력한 숫자와 정답을 각 자리별로 비교
+    for (index, userDigit) in userInput.enumerated() {
+        for (answerIndex, answerDigit) in answer.enumerated() {
+            if userDigit == answerDigit {
+                if index == answerIndex {
+                    // 자리까지 일치하는 경우는 스트라이크
+                    strikes += 1
+                } else {
+                    // 자리는 다르지만 값은 일치하는 경우는 볼
+                    balls += 1
+                }
+            }
+        }
+    }
+    
+    // 결과 문자열 생성
+    var resultString = ""
+    
+    if strikes > 0 {
+        resultString += "\(strikes)스트라이크"
+    }
+    
+    if balls > 0 {
+        if !resultString.isEmpty {
+            resultString += " "
+        }
+        resultString += "\(balls)볼"
+    }
+    
+    if resultString.isEmpty {
+        resultString = "Nothing"
+    }
+    
+    return resultString
+}
+
+// 정답 생성
+let answer = generateRandomNumber()
+print("정답: \(answer)")
+
+// 사용자 입력 받기 (실제 게임에서는 사용자로부터 입력을 받아야 함)
+let userInput = "456"
+
+// 결과 계산 및 출력
+let result = calculateResult(userInput: userInput, answer: answer)
+print(result)
