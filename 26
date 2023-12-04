@@ -1,0 +1,19 @@
+import Foundation
+
+func solution(_ absolutes:[Int], _ signs:[Bool]) -> Int {
+    guard absolutes.count >= 1 && absolutes.count <= 1_000 else {
+        return 0
+    }
+    var sum = 0
+    for i in 0..<absolutes.count {
+        if signs[i] == true {
+            sum += absolutes[i]
+        } else {
+            sum -= absolutes[i]
+        }  
+}
+return sum
+}
+
+let result = solution ([4,7,12],[true,false,true])
+print(result)
