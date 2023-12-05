@@ -1,0 +1,18 @@
+func solution(_ phone_number:String) -> String? { //옵셔널 (하단의 if let 구문)
+    guard phone_number.count >= 4 && phone_number.count <= 20 else { // phone_number는 길이 4 이상, 20이하인 문자열이라는 제한조건 구현
+        return nil
+    }
+    
+    let invisibleDigits = max(0, phone_number.count - 4) 
+    let maskedParts = String(repeating:"*",count:invisibleDigits)
+    let lastfourtDigits = phone_number.suffix(4)
+    
+    return maskedParts + lastfourtDigits
+}
+
+let phone_number = "01012345678"
+if let result = solution(phone_number) {
+    print(result)
+} else {
+    print("Invalid phone number length")
+}
