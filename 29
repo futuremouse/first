@@ -1,0 +1,12 @@
+func solution(_ arr:[Int]) -> [Int] {
+    guard arr.count > 1 else {
+        return [-1] // 배열에 요소가 1개인 경우 -1이 담긴 배열 반환
+    }
+    
+    let min = arr.min()!
+    return arr.filter { $0 != min }
+}
+
+// 사용 예시
+print(solution([4,3,2,1])) // 출력: [4, 3, 2]
+print(solution([10])) // 출력: [-1]
