@@ -1,0 +1,26 @@
+func solution(_ s: String) -> String {
+    // 주어진 문자열의 길이를 계산
+    let length = s.count
+    
+    // 중앙 인덱스를 찾기!
+    // s.startIndex는 문자열의 첫 번째 인덱스
+    // length / 2는 주어진 문자열의 중앙 위치를 계산
+    let middleIndex = s.index(s.startIndex, offsetBy: length / 2)
+    
+    // 만약 문자열의 길이가 짝수라면
+    if length % 2 == 0 {
+        // 중앙에 있는 두 글자의 인덱스를 찾는것임
+        let startIndex = s.index(middleIndex, offsetBy: -1)
+        let endIndex = s.index(middleIndex, offsetBy: 1)
+        
+        // 중앙 두 글자를 포함한 문자열을 반환
+        return String(s[startIndex..<endIndex])
+    } else { // 문자열의 길이가 홀수일 경우
+        // 중앙에 있는 하나의 글자의 인덱스를 찾아 반환함
+        return String(s[middleIndex])
+    }
+}
+
+// 테스트
+print(solution("abcde")) // "c"
+print(solution("qwer")) // "we"
