@@ -1,0 +1,38 @@
+import Foundation
+
+// 주어진 숫자의 약수 개수를 세는 함수
+func countDivisors(_ number: Int) -> Int {
+    var count = 0
+    for i in 1...number {
+        if number % i == 0 {
+            count += 1
+        }
+    }
+    return count
+}
+
+// 주어진 범위의 숫자들 중 약수의 개수에 따라 합산하여 결과를 반환하는 함수
+func solution(_ left: Int, _ right: Int) -> Int {
+    var sum = 0
+
+    for i in left...right {
+        let divisorsCount = countDivisors(i)
+        
+        if divisorsCount % 2 == 0 {
+            // 약수의 개수가 짝수인 경우, 더함
+            sum += i
+        } else {
+            // 약수의 개수가 홀수인 경우, 뺌
+            sum -= i
+        }
+    }
+
+    return sum
+}
+
+// for example
+let result1 = solution(13, 17)
+print(result1)  // 43
+
+let result2 = solution(24, 27)
+print(result2)  // 52
