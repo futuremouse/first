@@ -1,0 +1,22 @@
+func solution(_ price: Int, _ money: Int, _ count: Int) -> Int64 {
+    var totalCost = 0 // 놀이기구를 타는데 필요한 총 비용을 저장할 변수 초기화
+
+    // 놀이기구를 count번 타는 경우의 총 비용 계산
+    for i in 1...count {
+        totalCost += price * i // 각각의 타는 횟수에 따른 비용을 계산하여 누적
+    }
+
+    // 필요한 총 비용 계산 후, 현재 가지고 있는 금액과 비교하여 부족한 금액 계산
+    let requiredMoney = Int64(totalCost) - Int64(money)
+
+    // 필요한 금액이 있는지 확인하여 결과 반환
+    return requiredMoney > 0 ? requiredMoney : 0
+}
+
+// 예시로 실행
+let price = 3
+let money = 20
+let count = 4
+
+let result = solution(price, money, count)
+print("모자란 금액: \(result)")
