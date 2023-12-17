@@ -1,0 +1,17 @@
+func solution(_ s: String) -> Bool {
+    // 문자열 길이가 4 또는 6인지 확인
+    guard s.count == 4 || s.count == 6 else {
+        return false // 길이가 4 또는 6이 아니면 false 반환
+    }
+    
+    // 문자열이 숫자로만 구성되어 있는지 확인
+    for char in s { // 문자열 s의 각 문자에 대해 반복
+        if let _ = Int(String(char)) { // 각 문자를 숫자로 변환해보고
+            continue // 변환이 가능하면 다음 문자로 넘어감
+        } else {
+            return false // 변환이 불가능한 문자가 있으면 false 반환
+        }
+    }
+    
+    return true // 모든 문자가 숫자로 변환 가능하면 true 반환
+}
