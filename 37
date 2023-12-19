@@ -1,0 +1,23 @@
+func solution(_ arr1: [[Int]], _ arr2: [[Int]]) -> [[Int]] {
+    // 두 배열의 행과 열의 길이가 같은지, 각 배열의 길이가 500 이하인지 확인
+    guard arr1.count == arr2.count && arr1.count <= 500 && arr2.count <= 500 else {
+        return [] // 조건을 충족하지 않으면 빈 배열을 반환
+    }
+    
+    var result = [[Int]]() // 결과를 저장할 2차원 배열
+    
+    // 첫 번째 배열의 행에 대해 반복
+    for i in 0..<arr1.count {
+        var row = [Int]() // 새로운 행을 만들기 위한 배열
+        
+        // 현재 행의 열에 대해 반복
+        for j in 0..<arr1[i].count {
+            let sum = arr1[i][j] + arr2[i][j] // 두 배열의 같은 위치에 있는 요소를 더함
+            row.append(sum) // 해당 요소의 합을 새로운 행에 추가
+        }
+        
+        result.append(row) // 완성된 행을 결과 배열에 추가
+    }
+    
+    return result // 결과 배열 반환
+}
