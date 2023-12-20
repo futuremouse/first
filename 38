@@ -1,0 +1,23 @@
+// 사용자에게 입력 안내 메시지, "" 이 입력되어야 입력할 공간이 생김
+print("2개의 정수를 띄어쓰기 하여 입력하세요" , "")
+
+// 사용자 입력 받음
+if let input = readLine() {
+    // 사용자 입력값을 공백(" ")으로 나누고, 각 요소를 정수로 변환
+    let values = input.split(separator: " ").compactMap { Int($0) }
+    // 입력값이 두 개의 정수로 구성되어 있는지 확인
+    if values.count == 2 {
+        let (a, b) = (values[0], values[1])
+
+        // 입력받은 두 개의 정수를 기반으로 첫번째 입력한 a 만큼 별의 갯수 출력, b 횟수만큼 print
+        for _ in 0..<b {
+            print(String(repeating: "*", count: a))
+        }
+    } else {
+        // 입력 형식이 잘못되면 사용자에게 출력
+        print("2개의 정수를 한자리 띄어쓰기 하여 입력하세요")
+    }
+} else {
+    // 사용자 입력이 없는 경우를 처리
+    print("No input found.")
+}
