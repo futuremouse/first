@@ -1,0 +1,29 @@
+// 최대공약수(Greatest Common Divisor, GCD)를 계산하는 호제법은 두 수를 나누어가며 최대공약수를 찾는 방법
+func gcd(_ a: Int, _ b: Int) -> Int {
+    var a = a
+    var b = b
+    while b != 0 {
+        let temp = a % b   // temp에 a를 b로 나눈 나머지를 저장
+        a = b              // a 에 b를 대입
+        b = temp           // b 에 temp 를 대입  ( b가 0이 될 때까지 반복)
+    }
+    return abs(a)
+}
+
+// 최소공배수(Least Common Multiple, LCM)를 계산하는 함수
+func lcm(_ a: Int, _ b: Int) -> Int {  
+    return a * b / gcd(a, b)    //두 수의 곱을 최대공약수로 나누어 최소공배수를 계산
+}
+
+// 두 수의 최대공약수와 최소공배수를 반환하는 함수
+func solution(_ a: Int, _ b: Int) -> [Int] {
+    let gcdResult = gcd(a, b) // 최대공약수 계산
+    let lcmResult = lcm(a, b) // 최소공배수 계산
+    return [gcdResult, lcmResult] // 최대공약수와 최소공배수를 배열로 반환
+}
+
+// 예시로 두 수의 최대공약수와 최소공배수를 계산하고 결과를 출력
+let a = 3
+let b = 12
+let result = solution(a, b)
+print("최대공약수와 최소공배수:", result) // "최대공약수와 최소공배수: [3, 12]\n"
