@@ -1,0 +1,11 @@
+func solution(_ n: Int) -> Int {
+    // 3진법으로 변환 후 뒤집기
+    let result = String(String(n, radix: 3).reversed(), radix: 3)
+    
+    // 10진법으로 변환하여 반환
+    return Int(result) ?? 0
+}
+
+// 예시
+print(solution(45)) // 결과: 7
+print(solution(125)) // 결과: 229
