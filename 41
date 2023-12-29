@@ -1,0 +1,11 @@
+func solution(_ s:String) -> String {
+    var result = ""         //새로운 문자열 변수를 생성
+for (index, character) in s.enumerated() {  // enumerated 스펠링 주의, enumerated() 메서드는 문자열을 순회하면서 인덱스와 해당 문자를 제공
+    if index % 2 == 0 { //index % 2 == 0을 사용하여 인덱스가 짝수인지 홀수인지를 확인
+        result.append(character.uppercased())  //짝수이면 대문자, uppercased 소문자 주의
+    } else {
+        result.append(character.lowercased()) //아니면(홀수) 소문자
+    }
+}
+    return result
+}
