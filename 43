@@ -1,0 +1,26 @@
+import Foundation
+
+func solution(_ t: String, _ p: String) -> Int {
+    let tLength = t.count
+    let pLength = p.count
+    
+    var count = 0
+    
+    for i in 0...(tLength - pLength) {
+        let startIndex = t.index(t.startIndex, offsetBy: i)
+        let endIndex = t.index(startIndex, offsetBy: pLength)
+        let substring = t[startIndex..<endIndex]
+        
+        if let numberT = Int(substring), let numberP = Int(p) {
+            if numberT <= numberP {
+                count += 1
+            }
+        }
+    }
+    
+    return count
+}
+
+// 예시
+let result = solution("3141592", "271")
+print(result) // 출력: 2
