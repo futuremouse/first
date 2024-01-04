@@ -1,0 +1,18 @@
+import Foundation
+
+func solution(_ sizes:[[Int]]) -> Int {
+    var maxWidth = 0
+    var maxHeight = 0
+    
+    for card in sizes {
+        maxWidth = max(maxWidth, max(card[0], card[1]))  // 최대 가로 중에 제일 큰 값
+        maxHeight = max(maxHeight, min(card[0], card[1])) // 최소 높이 중에 제일 큰 값
+    }
+    
+    return maxWidth * maxHeight
+    
+}
+    
+let sizes = [[60, 50], [30, 70], [60, 30], [80, 40]]
+let walletSize = solution(sizes)
+print("지갑의 크기: \(walletSize)")
