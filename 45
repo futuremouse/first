@@ -1,0 +1,44 @@
+func solution(_ s: String, _ n: Int) -> String {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    
+    // 대문자와 소문자에 대한 알파벳 배열
+    let uppercaseAlphabet = Array(alphabet.uppercased())
+    let lowercaseAlphabet = Array(alphabet)
+    
+    var encryptedString = ""
+    
+    for char in s {
+        // 공백인 경우 그대로 추가
+        guard char != " " else {
+            encryptedString.append(" ")
+            continue
+        }
+        
+        var isUppercase = false
+        var index = 0
+        
+        // 대문자인지 소문자인지 확인하고 해당 알파벳 배열에서 인덱스 찾기
+        if let upperIndex = uppercaseAlphabet.firstIndex(of: char) {
+            isUppercase = true
+            index = upperIndex
+        } else if let lowerIndex = lowercaseAlphabet.firstIndex(of: char) {
+            index = lowerIndex
+        }
+        
+        // 암호화된 알파벳을 찾아서 encryptedString에 추가
+        let newIndex = (index + n) % 26
+        if isUppercase {
+            encryptedString.append(uppercaseAlphabet[newIndex])
+        } else {
+            encryptedString.append(lowercaseAlphabet[newIndex])
+        }
+    }
+    
+    return encryptedString
+}
+
+// 예시
+let inputString = "AB"
+let distance = 1
+let encrypted = solution(inputString, distance)
+print(encrypted) // 출력: "BC"
