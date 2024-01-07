@@ -1,0 +1,33 @@
+func solution(_ s: String) -> Int {
+    var result = ""
+    var temp = ""
+    
+    for char in s {
+        if char.isNumber {
+            result.append(String(char))
+        } else {
+            temp.append(char)
+            switch temp {
+                case "zero": result.append("0")
+                case "one": result.append("1")
+                case "two": result.append("2")
+                case "three": result.append("3")
+                case "four": result.append("4")
+                case "five": result.append("5")
+                case "six": result.append("6")
+                case "seven": result.append("7")
+                case "eight": result.append("8")
+                case "nine": result.append("9")
+                default: break
+            }
+            temp = ""
+        }
+    }
+    
+    return Int(result) ?? 0
+}
+
+// 함수를 호출하여 결과 확인
+let input = "one4seveneight"
+let output = solution(input)
+print(output) // 1478
