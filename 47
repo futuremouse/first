@@ -1,0 +1,18 @@
+func solution(_ strings: [String], _ n: Int) -> [String] {
+// sorted 메서드를 사용하여 정렬, sorted 클로저 내에서 각 문자열의 인덱스 n번째 문자를 비교하고, 비교 결과에 따라 정렬
+    let sorted = strings.sorted {   
+        let indexA = $0.index($0.startIndex, offsetBy: n)
+        let indexB = $1.index($1.startIndex, offsetBy: n)
+        
+        if $0[indexA] == $1[indexB] {      // indexA와 indexB를 사용하여 각 문자열의 인덱스 n번째에 위치한 문자를 비교
+            return $0 < $1               // 문자열의 인덱스 n의 문자가 같다면, $0 < $1을 통해 사전순으로 정렬
+        } else {
+            return $0[indexA] < $1[indexB]  // 인덱스 n의 문자가 다르다면, $0[indexA] < $1[indexB]을 통해 오름차순으로 정렬
+        }
+    }
+    return sorted
+}
+let strings = ["sun", "bed", "car"]
+let n = 1
+let result = solution(strings, n)
+print(result)
