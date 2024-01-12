@@ -1,0 +1,31 @@
+func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
+
+    let myArray = array // 상수이므로 let
+    
+    func cutArray<T> (array:[T], start: Int, end: Int) -> [T] {
+        return Array(array[start...end])
+    }
+
+    var finalNumbers: [Int] = []
+
+    for command in commands {
+    let i = command[0]
+    let j = command[1]
+    let k = command[2]
+
+    let cuttedArray = cutArray(array: myArray, start: i - 1, end: j - 1)
+    let sortedArray = cuttedArray.sorted()
+    let kthElement = sortedArray[k - 1]
+
+    finalNumbers.append(kthElement)
+}
+
+    
+    return finalNumbers
+    
+   }    
+
+let array = [1, 5, 2, 6, 3, 7, 4]
+let commands = [[2, 5, 3], [4, 4, 1], [1, 7, 3]]
+let result = solution(array,commands)
+print(result)
