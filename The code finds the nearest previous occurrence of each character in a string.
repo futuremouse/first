@@ -1,0 +1,28 @@
+import Foundation
+
+func solution(_ s: String) -> [Int] {
+    var result: [Int] = []
+
+    for (index, char) in s.enumerated() {
+        var nearestIndex = -1
+        
+        for i in stride(from: index - 1, through: 0, by: -1) {
+            let currentIndex = s.index(s.startIndex, offsetBy: i)
+            if s[currentIndex] == char {
+                nearestIndex = index - i
+                break
+            }
+        }
+        
+        result.append(nearestIndex)
+    } 
+    
+    return result
+}
+
+// Test
+let result1 = solution("banana")
+let result2 = solution("foobar")
+
+print(result1)  // Output: [-1, -1, -1, 2, 2, 2]
+print(result2)  // Output: [-1, -1, 1, -1, -1, -1]
