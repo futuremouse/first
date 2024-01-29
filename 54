@@ -1,0 +1,22 @@
+func solution(_ a: Int, _ b: Int) -> String {
+    // 2016년 1월 1일은 금요일이므로, 금요일부터 시작
+    let daysOfWeek = ["FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"]
+    
+    // 각 월별 일 수를 배열에 저장
+    let daysInMonth = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    
+    // 입력받은 월(a)과 일(b)을 이용하여 총 일 수를 계산
+    var totalDays = 0
+    for i in 1..<a {
+        totalDays += daysInMonth[i]
+    }
+    totalDays += b - 1
+    
+    // 총 일 수를 7로 나눈 나머지를 이용하여 요일을 결정
+    let dayOfWeekIndex = (totalDays % 7)
+    
+    // 요일을 반환
+    return daysOfWeek[dayOfWeekIndex]
+}
+
+print(solution(5, 24)) // "TUE"
