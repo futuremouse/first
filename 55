@@ -1,0 +1,22 @@
+import Foundation
+
+func solution(_ cards1:[String], _ cards2:[String], _ goal:[String]) -> String {
+    var index1 = 0 // Initialize index for cards1
+    var index2 = 0 // Initialize index for cards2
+    
+    for word in goal { // Iterate through each word in the goal array
+        if index1 < cards1.count && cards1[index1] == word {
+            // If we haven't used all cards in cards1 and the current word matches cards1
+            index1 += 1 // Move to the next card in cards1
+        } else if index2 < cards2.count && cards2[index2] == word {
+            // If we haven't used all cards in cards2 and the current word matches cards2
+            index2 += 1 // Move to the next card in cards2
+        } else {
+            // If neither cards1 nor cards2 can provide the current word, return "No"
+            return "No"
+        }
+    }
+    
+    // If we successfully formed the goal array, return "Yes"
+    return "Yes"
+}
