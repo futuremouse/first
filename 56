@@ -1,0 +1,36 @@
+func solution(_ k: Int, _ m: Int, _ score: [Int]) -> Int {
+    // 각 점수별로 몇 개의 사과가 있는지를 저장할 딕셔너리
+    var appleCounts = [Int: Int]()
+    
+    // 사과별 개수 카운팅
+    for s in score {
+        if let count = appleCounts[s] {
+            appleCounts[s] = count + 1
+        } else {
+            appleCounts[s] = 1
+        }
+    }
+    
+    // 가격 계산
+    var totalPrice = 0
+    var boxes = 0
+    for p in 1...k {
+        if let count = appleCounts[p] {
+            // p점인 사과들을 상자에 담을 수 있는 횟수
+            let boxCount = count / m
+            boxes += boxCount
+            // 나머지 사과가 남은 경우 한 상자 추가
+            if count % m != 0 {
+                boxes += 1
+            }
+            // 현재 점수(p)의 상자들의 가격을 더함
+            totalPrice += p * boxCount * m
+        }
+    }
+    
+    return totalPrice
+}
+
+// Example usage:
+print(solution(3, 4, [1, 2, 3, 1, 2, 3, 1])) // Output: 8
+print(solution(4, 3, [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2])) // Output: 33
